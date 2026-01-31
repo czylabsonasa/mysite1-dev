@@ -25,6 +25,10 @@
 - put `\toc` before the content of `index.md`
 
 ## Upload using Github Desktop
+- no official Github Desktop on linux (there are some builds, however)
+- currently according to my humble understanding:
+  - i need two repos, one for the development and one for the __site folder
+  
 
 # Examples
 
