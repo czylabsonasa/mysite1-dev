@@ -6,4 +6,4 @@
 
 @def generate_rss = false
 
-@def prepath = ""
+@def prepath = "mysite1"
