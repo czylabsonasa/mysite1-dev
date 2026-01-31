@@ -3,10 +3,12 @@
 @def hasmath = true
 @def hascode = true
 
+\toc 
 
 # Set up
 - [add julia to vscode]
-- ctrl+J + ctrl+O ⟶ julia terminal
+- alt+J + alt+O ⟶ julia terminal
+  - more keybindings are [here](https://www.julia-vscode.org/docs/stable/userguide/keybindings/)
 - mkdir "root dir" + "mysite1" under it
 - cd "root dir"
 - activate project
@@ -33,7 +35,41 @@
 
 ## How to enter text
 
+### The standard Lorem Ipsum passage, used since the 1500s
+
+"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+
 ## How to render math equations
+
+- this inline (enclosed by dollar-signs) math: for some triangles $a^2 + b^2 = c^2$
+- and this is display (enclosed by double-dollar-signs):
+
+$$
+t_{i},f_{i},\ i=1\ldots n,\ \ F(t) = \sum_{k=1}^{m} x_{k}\varphi_{k}(t) \\
+\sum_{i=1}^{n} \vert F(t_{i})-f_{i}\vert^2 \ \stackrel{x_{1},\ldots,x_{m}}{\to} \min\\
+A=\left[ \varphi_{1}(t),\ldots,\varphi_{m}(t)\right]\ \ n\times m\ \text{matrix}\\
+A^{T}A \text{ is a } m\times m \text{ non-negative definite matrix }\\
+$$
+
+$$
+t_{i},f_{i},\ i=1\ldots n,\ \ F(t) = \sum_{k=1}^{m} x_{k}\varphi_{k}(t) \\
+\sum_{i=1}^{n} \vert F(t_{i})-f_{i}\vert^2 \ \stackrel{x_{1},\ldots,x_{m}}{\to} \min\\
+A=\left[ \varphi_{1}(t),\ldots,\varphi_{m}(t)\right]\ \ n\times m\ \text{matrix}\\
+A^{T}A \text{ is a } m\times m \text{ non-negative definite matrix }\\
+$$
+
+- brute-force method to get rid the display-math auto numbering of katex:
+```css
+/* it is somwhere in the franklin.css file */
+.katex-display::after {
+  counter-increment: eqnum;
+  /*content: "(" counter(eqnum) ")";*/
+  content: "";
+  position: relative;
+  float: right;
+  padding-right: 5px;
+}
+```
 
 ## How to insert julia code (with outputs!)
 

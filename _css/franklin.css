@@ -270,7 +270,8 @@ body { counter-reset: eqnum; }
 
 .katex-display::after {
   counter-increment: eqnum;
-  content: "(" counter(eqnum) ")";
+  /*content: "(" counter(eqnum) ")";*/
+  content: "";
   position: relative;
   float: right;
   padding-right: 5px;
