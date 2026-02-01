@@ -5,6 +5,11 @@
 
 \toc 
 
+# WTF is it?
+- it is a follow-up (is english?) of this [tutorial](https://www.youtube.com/watch?v=fVBiLEtZB7A)
+- [doggo dot jl](https://www.youtube.com/@doggodotjl) has many interesting julia tutorials!
+
+
 # Set up
 - [add julia to vscode]
 - alt+J + alt+O ⟶ julia terminal
