@@ -4,7 +4,7 @@ author = "Dabbling Doggoo"
 generate_rss = false
 
 #prepath = ""
-prepath = "https://czylabsonasa.github.io/mysite1"
+prepath = "mysite1"
 +++
 
 \newcommand{\R}{\mathbb R}
