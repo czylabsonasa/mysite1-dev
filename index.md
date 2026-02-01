@@ -11,14 +11,16 @@
 
 
 # Set up
-- [add julia to vscode]
-- alt+J + alt+O ⟶ julia terminal
-  - more keybindings are [here](https://www.julia-vscode.org/docs/stable/userguide/keybindings/)
-- mkdir "root dir"
-- cd "root dir"
-- activate project
+- i'm using julia from a terminal and - for me - vscode is only for editing (too old to rock'n roll), so here i'm deviating from doggo's workflow
+- create a `yourusername.github.io` repo on github and prepare for work on it locally
+- start julia in the local `yourusername.github.io` directory
+- activate a project
 - add Franklin
-- newsite("mysite1"; template="sandbox") + serve()
+- issue `newsite("mysite1"; template="sandbox")` and  `serve()`
+- now you can browse the site on `localhost:8000`
+- the actual site is inside the `mysite1/__site` directory, which is gitignored by default. It means, that you can create a repo named `mysite` on github with the content of this `__site` dir, and u can activate the github-pages on it...
+- issue `publish(;prepath="mysite1")`, push it and browse `username.github.io/mysite1`
+
 
 ## Update title
 - modify `@def title=...` at the top
