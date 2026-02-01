@@ -119,9 +119,20 @@ versioninfo()
 \show{./mysys}
 
 
-
-
 ## How to insert a table from a CSV file
+- include and show tables syntax:
+```
+\tableinput{}{./tableinput/population_by_year.csv}
+```
+
+- and the result is:
+\tableinput{}{./tableinput/population_by_year.csv}
+
+@@source
+
+Source: Wikipedia
+@@
+
 
 ## How to insert an image file
 
