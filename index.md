@@ -9,11 +9,11 @@
 - [add julia to vscode]
 - alt+J + alt+O ⟶ julia terminal
   - more keybindings are [here](https://www.julia-vscode.org/docs/stable/userguide/keybindings/)
-- mkdir "root dir" + "mysite1" under it
+- mkdir "root dir"
 - cd "root dir"
 - activate project
 - add Franklin
-- newsite("mysite"; template="sandbox") + serve()
+- newsite("mysite1"; template="sandbox") + serve()
 
 ## Update title
 - modify `@def title=...` at the top
@@ -21,6 +21,7 @@
 ## Update config.md file
 - `@def author=...`
 - `@def prepath=...` (it is "mysite1" here)
+- TOML syntax can be used within `+++ +++`
 
 
 ## Create a table of contents (optional)
@@ -41,6 +42,7 @@
 
 ## How to render math equations
 
+- on github currently does not work...
 - this inline (enclosed by dollar-signs) math: for some triangles $a^2 + b^2 = c^2$
 - and this is display (enclosed by double-dollar-signs):
 
