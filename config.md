@@ -3,8 +3,8 @@ author = "Dabbling Doggoo"
 
 generate_rss = false
 
-prepath = ""
-#prepath = "https://czylabsonasa.github.io/mysite1"
+#prepath = ""
+prepath = "https://czylabsonasa.github.io/mysite1"
 +++
 
 \newcommand{\R}{\mathbb R}
