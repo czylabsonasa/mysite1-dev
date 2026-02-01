@@ -6,7 +6,7 @@
 \toc 
 
 # WTF is it?
-- it is a follow-up (is english?) of this [tutorial](https://www.youtube.com/watch?v=fVBiLEtZB7A)
+- it is a follow-up (???) of this [tutorial](https://www.youtube.com/watch?v=fVBiLEtZB7A)
 - [doggo dot jl](https://www.youtube.com/@doggodotjl) has many interesting julia tutorials!
 
 
