@@ -12,6 +12,7 @@
 
 # Set up
 - i'm using julia from a terminal and - for me - vscode is only for editing (too old to rock'n roll), so here i'm deviating from doggo's workflow
+- the following approach is discussed [here](https://github.com/orgs/community/discussions/63631)
 - create a `yourusername.github.io` repo on github and prepare for work on it locally
 - start julia in the local `yourusername.github.io` directory
 - activate a project
@@ -28,6 +29,7 @@
 ## Update config.md file
 - `@def author=...`
 - `@def prepath=...` (it is "mysite1" here)
+  - it can be set as a parameter to `publish`
 - TOML syntax can be used within `+++ +++`
 
 
@@ -36,7 +38,7 @@
 
 ## Upload using Github Desktop
 - no official Github Desktop on linux (there are some builds, however)
-- my approach is: set up two repos on GitHub, one for the development and one for the `__site` folder
+- the approach used here is described in the `Set up` part
 
 
 # Examples
@@ -49,7 +51,6 @@
 
 ## How to render math equations
 
-- on github currently does not work...
 - this inline (enclosed by dollar-signs) math: for some triangles $a^2 + b^2 = c^2$
 - and this is display (enclosed by double-dollar-signs):
 
@@ -81,6 +82,44 @@ $$
 ```
 
 ## How to insert julia code (with outputs!)
+
+- this command will be executed:
+```julia:./helloworld
+println("hello world!")
+```
+
+- and this is the result:
+\show{./helloworld}
+
+- a slightly more time consuming (but silly) example:
+```julia:./fib
+function fib(n)
+   n<2 && (return n)
+   return fib(n-2)+fib(n-1)
+end
+
+for n in 37:42
+   t=time()
+   fn=fib(n)
+   t=round(time()-t, digits=3)
+   println("the $(n). Fibonacci is $(fn), computed in $(t)sec")
+end
+```
+
+\show{./fib}
+
+- if the script is untouched the previous result will be used (reported), which is good seeing the growing running times...
+
+
+- another example about my machine:
+```julia:./mysys
+using InteractiveUtils
+versioninfo()
+```
+\show{./mysys}
+
+
+
 
 ## How to insert a table from a CSV file
 
