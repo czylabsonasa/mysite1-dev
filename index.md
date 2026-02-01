@@ -8,7 +8,7 @@
 # WTF is it?
 - it is a follow-up (???) of this [tutorial](https://www.youtube.com/watch?v=fVBiLEtZB7A)
 - [doggo dot jl](https://www.youtube.com/@doggodotjl) has many interesting julia tutorials!
-
+- you can learn by inspecting the source
 
 # Set up
 - i'm using julia from a terminal and - for me - vscode is only for editing (too old to rock'n roll), so here i'm deviating from doggo's workflow
