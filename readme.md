@@ -1,1 +1,1 @@
-# this is mysite-dev
+- this is the source part of [https://czylabsonasa.github.io/franklintro](https://czylabsonasa.github.io/franklintro)

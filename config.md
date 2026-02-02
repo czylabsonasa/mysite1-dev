@@ -1,10 +1,7 @@
 +++
-author = "Dabbling Doggoo"
+author = "Dabbling Doggoo+mee"
 
 generate_rss = false
-
-#prepath = ""
-prepath = "mysite1"
 +++
 
 \newcommand{\R}{\mathbb R}

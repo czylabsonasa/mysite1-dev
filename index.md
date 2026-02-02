@@ -1,7 +1,8 @@
-@def title = "mysite1"
-
-@def hasmath = true
-@def hascode = true
++++
+title = "franklintro"
+hasmath = true
+hascode = true
++++
 
 \toc 
 
@@ -12,15 +13,15 @@
 
 # Set up
 - i'm using julia from a terminal and - for me - vscode is only for editing (too old to rock'n roll), so here i'm deviating from doggo's workflow
-- the following approach is discussed [here](https://github.com/orgs/community/discussions/63631)
+- the approach below is discussed [here](https://github.com/orgs/community/discussions/63631)
 - create a `yourusername.github.io` repo on github and prepare for work on it locally
 - start julia in the local `yourusername.github.io` directory
 - activate a project
 - add Franklin
-- issue `newsite("mysite1"; template="sandbox")` and  `serve()`
+- issue `newsite("franklintro"; template="sandbox")` and  `serve()`
 - now you can browse the site on `localhost:8000`
-- the actual site is inside the `mysite1/__site` directory, which is gitignored by default. It means, that you can create a repo named `mysite` on github with the content of this `__site` dir, and u can activate the github-pages on it...
-- issue `publish(;prepath="mysite1")`, push it and browse `username.github.io/mysite1`
+- the actual site is inside the `franklintro/__site` directory, which is gitignored by default. It means, that you can create a repo named `mysite` on github with the content of this `__site` dir, and u can activate the github-pages on it...
+- issue `optimize(;prepath="franklintro",minify=false)`, push it and browse `username.github.io/franklintro`
 
 
 ## Update title
@@ -28,7 +29,7 @@
 
 ## Update config.md file
 - `@def author=...`
-- `@def prepath=...` (it is "mysite1" here)
+- `@def prepath=...` (it is "franklintro" here)
   - it can be set as a parameter to `publish`
 - TOML syntax can be used within `+++ +++`
 
@@ -129,16 +130,129 @@ versioninfo()
 \tableinput{}{./tableinput/population_by_year.csv}
 
 @@source
-
 Source: Wikipedia
 @@
 
+- you can style the table output by adding these to `franklin.css` :
+```css
+th {
+   background-color: rgb(165, 165, 248);
+   color: white;
+   font-weight: bold;
+}
+tr:nth-child(odd) {
+   background-color: lightgray;
+}
+```
+- (the styled table is shown)
+- as you see the `source` part above is too large, this way u can style it (`franklin.css`)
+- the css syntax:
+```css
+.source_small {
+   font-size: var(--small);
+   font-style: italic;
+}
+```
+- the markdown syntax:
+  - Franklin will create a `div` w/ class `source_small` and the above styling applied to that particular class.
+```markdown
+@@source_small
+Source: Wikipedia
+@@
+```
+- the result:
+@@source_small
+Data source: Wikipedia
+@@
+
+- see [this](https://franklinjl.org/code/) for more details about code handling
 
 ## How to insert an image file
+- the syntax:
+```
+![beeswarm population by region](/assets/p_beeswarm_region.svg)
+```
+- the result:
+![beeswarm population by region](/assets/p_beeswarm_region.svg)
+@@source_small
+Image source: Wikipedia
+@@
+
 
 ## How to insert clickable thumbnail to a Youtube video
+- this is the tutorial video's clickable link
+- the markdown syntax:
+  - it is an image inside the `[]` part
+  - for `...vi/[hash]/...` the `hash` what is shown in the address
+```markdown
+[![YT thumbnail](https://img.youtube.com/vi/fVBiLEtZB7A/0.jpg)](https://www.youtube.com/watch?v=fVBiLEtZB7A)
+
+```
+- the result:
+[![YT thumbnail](https://img.youtube.com/vi/fVBiLEtZB7A/0.jpg)](https://www.youtube.com/watch?v=fVBiLEtZB7A)
+
+- the image is too large, in markdown AFAIK no official way to resize it, but u can style it through the `alt` part:
+- markdown syntax (here `thumbnail` will be the `alt` part):
+```markdown
+[![thumbnail](https://img.youtube.com/vi/fVBiLEtZB7A/0.jpg)](https://www.youtube.com/watch?v=fVBiLEtZB7A)
+```
+- the css syntax:
+```css
+img[alt="thumbnail"] { 
+   width: 100px; 
+}
+```
+
+- the result is
+[![thumbnail](https://img.youtube.com/vi/fVBiLEtZB7A/0.jpg)](https://www.youtube.com/watch?v=fVBiLEtZB7A)
+
+- more thumbnails:
+[![thumbnail](https://img.youtube.com/vi/fVBiLEtZB7A/0.jpg)](https://www.youtube.com/watch?v=fVBiLEtZB7A)
+[![thumbnail](https://img.youtube.com/vi/SSYV8gC2UkQ/0.jpg)](https://www.youtube.com/watch?v=SSYV8gC2UkQ)
+
+- with `\textoutput{}` function(?) one can generate and include thumbnails programatically
+  - [How to use loops for templating?](https://franklinjl.org/faq/technical/)
+- the relevant part in the `index.md`:
+  - define and call the function:
+
+```julia:./tmaker
+function tmaker(lista)
+   tmp=String[]
+   for elem in lista
+      push!(
+         tmp,
+         """[![thumbnail](https://img.youtube.com/vi/$(elem)/0.jpg)](https://www.youtube.com/watch?v=$(elem))"""
+      )
+   end
+   join(tmp,'\n')
+end
+
+tmaker(["gzvn-hdlkUg","fVBiLEtZB7A","SSYV8gC2UkQ","zmlulaxatRs"])|>println
+```
+
+  - include its output:
+```markdown
+\textoutput{./tmaker}
+```
+
+- the result:
+\textoutput{./tmaker}
+
+
+
 
 ## How to inject raw HTML
+- syntax:
+  - enclose it by `~~~ ~~~`:
+```markdown
+~~~
+<iframe width="420" height="240" src="https://www.youtube.com/embed/fVBiLEtZB7A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+~~~
+```
+- the result (is an embedded YT video):
+~~~
+<iframe width="640" height="360" src="https://www.youtube.com/embed/fVBiLEtZB7A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+~~~
 
 
 
