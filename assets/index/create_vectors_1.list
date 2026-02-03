@@ -1,0 +1,22 @@
+[
+   (
+      desc=raw"$[1,2,\ldots,21,22]$",
+      hint="use `:`",
+      sol="`1:22`"
+   ),
+   (
+      desc=raw"$[1,3,5\ldots,19,21]$",
+      hint="use `:`",
+      sol="`1:2:22`"
+   ),
+   (
+      desc=raw"$[22,21,\ldots,2,1]$",
+      hint="use `:`",
+      sol="`22:-1:1`"
+   ),
+   (
+      desc=raw"$[22,20,\ldots,4,2]$",
+      hint="use `:`",
+      sol="`22:-2:1`"
+   ),
+]

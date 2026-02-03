@@ -270,8 +270,7 @@ body { counter-reset: eqnum; }
 
 .katex-display::after {
   counter-increment: eqnum;
-  /*content: "(" counter(eqnum) ")";*/
-  content: "";
+  content: "(" counter(eqnum) ")";
   position: relative;
   float: right;
   padding-right: 5px;
@@ -334,26 +333,4 @@ code {
   margin-bottom: 5px;
   border-radius: 0 10px 10px 0;
   border-left: 5px solid #4c9cf1;
-}
-
-/* ==================================================================
-   ETC - modifications
-================================================================== */
-
-th {
-   background-color: rgb(132, 132, 184);
-   color: white;
-   font-weight: bold;
-}
-tr:nth-child(odd) {
-   background-color: lightgray;
-}
-
-.source_small {
-   font-size: var(--small);
-   font-style: italic;
-}
-
-img[alt="thumbnail"] { 
-   width: 100px; 
 }
